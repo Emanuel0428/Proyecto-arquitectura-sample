@@ -1,0 +1,805 @@
+/* ==========================
+   IMPORTACIONES Y FUENTES
+========================== */
+/*import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* ==========================
+   ESTILOS GENERALES
+========================== */
+/* Para Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento */
+}
+
+/* Para Firefox */
+body {
+  scrollbar-width: none; /* Oculta la barra de desplazamiento */
+}
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: #ffffff;
+  color: #333;
+  overflow: hidden;
+}
+
+
+
+
+/* ==========================
+   SIDEBAR
+========================== */
+.sidebar {
+  background-color: #ffffff;
+  width: 20%;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: left;
+  margin-top: 50px;
+}
+
+.logo-imagen {
+  width: 30%;
+  height: 30%;
+  object-fit: cover;
+  border-radius: 1%;
+  align-items: center;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #333;
+  position: relative;
+  line-height: 1.5;
+}
+
+.sidebar nav ul li::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #333;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s;
+}
+
+.sidebar nav ul li:hover::after,
+.sidebar nav ul li.active::after {
+  width: 30%;
+}
+
+.sidebar nav ul li:hover {
+  color: #000;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 250px;
+}
+
+.sidebar .logo,
+#proyectos,
+.titulo-equipo,
+.contact-header h2,
+.contact-header p,
+.titulo-ubicacion {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ==========================
+   MAIN CONTENT
+========================== */
+main {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  position: relative;
+  font-family: 'Nunito', sans-serif;
+}
+
+main.scrolled {
+  background-color: #f5f5f5;
+}
+
+/* ==========================
+   SECCIONES
+========================== */
+.section {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.section.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Animaciones para las transiciones entre secciones */
+@keyframes slideInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.section.slideOutUp {
+  animation: slideOutUp 0.5s forwards;
+}
+
+.section.slideOutDown {
+  animation: slideOutDown 0.5s forwards;
+}
+
+.section.slideInDown {
+  animation: slideInDown 0.5s forwards;
+}
+
+/* ==========================
+   SECCIÓN DE INICIO
+========================== */
+#inicio {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#video-fondo-1,
+#video-fondo-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  z-index: -1;
+  display: none;
+  transform: translate(15%, 10%); /* Esto centra los videos */
+}
+
+#video-fondo-1.active,
+#video-fondo-2.active {
+  display: block;
+}
+
+/* ==========================
+   SECCIÓN DE PROYECTOS
+========================== */
+#proyectos {
+  
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.3;
+  text-align: center;
+  margin-left: 5px;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  justify-items: center;
+  align-items: center;
+  margin-top: 180px;
+  width: 640px;
+  height: 600px;
+  grid-auto-rows: 70px;
+  overflow: hidden;
+}
+
+.grid-item {
+  width: 70px;
+  height: 70px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.inner-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  border-radius: 5px;
+}
+
+.text-box {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+  margin-top: 10px;
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .text-box {
+  opacity: 0;
+}
+
+/* ==========================
+   SECCIÓN DE EQUIPO
+========================== */
+
+.titulo-equipo {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 600px;
+  color: #000000;
+}
+
+/* Contenedor general de la sección */
+#equipo {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%; /* Ajusta al ancho de la página */
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start; /* Si estás usando scroll-snap */
+  margin-left: 55px;
+  margin-bottom: 30px;
+}
+
+/* Contenedor principal del carrusel */
+.equipo-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 100%;
+  width: 70%;
+  overflow: hidden;
+  margin-top: 200px;
+  margin-left : 150px;
+}
+
+/* Botones de scroll */
+.scroll-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-btn:hover {
+  opacity: 1;
+}
+
+.scroll-btn.left {
+  position: absolute;
+  left: 10px;
+}
+
+.scroll-btn.right {
+  position: absolute;
+  right: 10px;
+}
+
+/* Contenedor del carrusel */
+.equipo-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 95%;
+  padding: 10px;
+}
+
+/* Estilo de cada miembro */
+.equipo-item {
+  position: relative; /* Necesario para posicionar elementos relacionados, como textos */
+  width: 100%; /* Ocupa el 100% del contenedor */
+  height: 100%; /* Ocupa el 100% del contenedor */
+  border: 2px solid black; /* Margen negro alrededor de las fotos */
+  overflow: hidden; /* Asegura que los elementos dentro de la foto no sobresalgan */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+.equipo-item img {
+  width: 100%;        /* Ocupa el ancho completo del contenedor */
+  height: auto;       /* Mantiene la proporción original */
+  max-height: 220px;  /* Limita la altura máxima */
+  object-fit: cover;  /* Recorta la imagen para ajustarse al tamaño del contenedor */
+  border-radius: 10px; /* Opcional: esquinas redondeadas */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para estética */
+}
+
+.equipo-item:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil para resaltar */
+}
+
+.equipo-item:hover img {
+  opacity: 0.2;
+}
+
+.info {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.equipo-item:hover .info {
+  opacity: 1;
+}
+
+.info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+}
+
+.modal-foto {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain; 
+  border-radius: 10px;
+  margin-bottom: 20px;
+  image-rendering: auto;
+}
+
+
+.modal-info {
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+}
+
+.modal-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.modal-info p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+
+/* ==========================
+   SECCIÓN DE UBICACIÓN
+========================== */
+.section-ubicacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.contenido-ubicacion {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.titulo-ubicacion {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 180px;
+}
+
+.texto-ubicacion {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 10px;
+  
+}
+
+.mapa-reducida-ubicacion {
+
+  max-width: 40%;
+  height: auto;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mapa-reducida-ubicacion:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ===================== */
+/* Estilos de Contacto   */
+/* ===================== */
+#contacto {
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+  text-align: center;
+  margin-top: 130px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.contact-container {
+  max-width: 500px;
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  text-align: left;
+}
+
+.contact-header p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #000000;
+  text-align: left;
+}
+
+/* Estilos de los campos del formulario */
+form#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.form-group input,
+.form-group textarea {
+
+  font-size: 0.9rem;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #222222;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Estilo del botón */
+.btn-submit {
+  font-size: 0.9rem;
+  padding: 0.7rem;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #242424;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 1rem;
+  }
+
+  .contact-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact-header p {
+    font-size: 0.8rem;
+  }
+}
+
+.form-group label,
+.form-group input,
+textarea,
+.btn-submit {
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6; /* Mejor legibilidad */
+  font-size: 0.9rem;
+}
+
+
+/* Configuración para los videos de fondo */
+#inicio video {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  width: 95%;
+  height: 95%;
+  object-fit: cover; /* Escalar el video para llenar el área */
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Asegúrate de que quede detrás del contenido */
+}
+/* Panel deslizante */
+.slide-panel {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Oculto inicialmente */
+  width: 30%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen del panel */
+.slide-panel img.panel-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: -160px; /* Espacio negativo para subir la imagen */
+  margin-bottom: 20px; /* Espacio inferior para no pegarse al contenido siguiente */
+  max-width: 90%; /* Limita el ancho de la imagen */
+  max-height: 70vh; /* Limita la altura de la imagen al 70% de la altura de la ventana */
+  object-fit: cover; /* Hace que la imagen se recorte para llenar el contenedor sin deformarse */
+  display: block; /* Asegura que la imagen no tenga márgenes automáticos */
+  margin-left: auto;
+  margin-right: auto; /* Centra la imagen */
+}
+
+
+
+
+/* Título del panel */
+.slide-panel h3.panel-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Descripción del panel */
+.slide-panel p.panel-description {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Clase para mostrar el panel */
+.slide-panel.show {
+  right: 0; /* Mostrar el panel */
+}
+
+/* Aplicar el blur a todo el contenido excepto la sidebar y el panel */
+.blur {
+  filter: blur(5px);
+  pointer-events: none; /* Desactiva la interacción con el contenido */
+  user-select: none;
+}
+
+/* Evitar que el blur afecte a la sidebar */
+.sidebar, .slide-panel {
+  filter: none !important;
+  pointer-events: auto !important;
+  user-select: auto !important;
+}
+/* Asegurarse de que los videos no se deformen */
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Escalar el video para llenar el área sin deformar */
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Queda detrás del contenido */
+}
+
+/* Establecer el contenedor principal para que se ajuste */
+#contenedor {
+  width: 100%; /* Ancho completo de la pantalla */
+  max-width: 1200px; /* Ancho máximo para evitar que se haga demasiado grande */
+  margin: 0 auto; /* Centrado en la página */
+  padding: 20px;
+}
+
+/* Estilo para imágenes y otros elementos */
+img {
+  max-width: 100%; /* Hace que las imágenes se ajusten al ancho del contenedor */
+  height: auto;
+}
+
+/* Ajustes para los elementos del sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; /* Asegura que ocupe toda la altura */
+  width: 250px;
+  padding: 20px;
+}
+
+/* Evitar que los elementos del contenido principal se deslicen con el zoom */
+main {
+  margin-left: 250px; /* Espacio para el sidebar */
+  padding: 20px;
+  max-width: calc(100% - 250px); /* Asegura que no se salga del contenedor */
+}
+
+/* Ajustes para el menú */
+.menu-item {
+  cursor: pointer;
+}
+.menu-item.active {
+  font-weight: bold;
+}
+
+/* Estilo para las secciones */
+.section {
+  margin-bottom: 40px;
+}
+
+/* Ajuste para las secciones en pantallas pequeñas */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px; /* Ajusta el margen según el tamaño del sidebar */
+    max-width: calc(100% - 200px);
+  }
+}

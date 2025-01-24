@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <title>Proyectos</title>
+  <!-- Enlace al archivo CSS principal -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ========================== -->
+  <!-- SECCIÓN: Sidebar          -->
+  <!-- ========================== -->
+  <div class="sidebar">
+    <div class="logo">VOLUMEN</div>
+    <nav>
+      <ul>
+        <li class="menu-item active" data-target="inicio">Inicio</li>
+        <li class="menu-item" data-target="proyectos">Proyectos</li>
+        <li class="menu-item" data-target="equipo">Equipo</li>
+        <li class="menu-item" data-target="ubicacion">Ubicación</li>
+        <li class="menu-item" data-target="contacto">Contacto</li>
+      </ul>
+      <div class="logo-container">
+        <img src="images/logoVLMN.webp" alt="Logo" class="logo-imagen">
+      </div>
+    </nav>
+  </div>
+
+  <!-- ========================== -->
+  <!-- SECCIÓN: Contenido Principal -->
+  <!-- ========================== -->
+  <main>
+    <!-- ======================= -->
+    <!-- SUBSECCIÓN: Inicio      -->
+    <!-- ======================= -->
+    <section id="inicio" class="section active">
+      <!-- Video de fondo -->
+      <video muted autoplay loop id="video-fondo-1">
+        <source src="videos/logo.mp4" type="video/mp4">
+        Tu navegador no soporta videos HTML5.
+      </video>
+    </section>
+
+    <!-- ======================= -->
+    <!-- SUBSECCIÓN: Proyectos   -->
+    <!-- ======================= -->
+    <section id="proyectos" class="section">
+      <h2>Proyectos</h2>
+      <div class="container">
+        <!-- Elementos de la cuadrícula -->
+        <div class="grid-item" data-description="Descripcion de maqueta plana">
+          <div class="inner-box">
+            <img src="images/maqueta pianta portada.webp" alt="Imagen 1">
+          </div>
+          <div class="text-box">Maqueta Plana</div>
+        </div>
+        <div class="grid-item" data-description="Descripcion de maqueta devu">
+          <div class="inner-box">
+            <img src="images/maqueta devu portada.webp" alt="Imagen 2">
+          </div>
+          <div class="text-box">Maqueta Devu</div>
+        </div>
+        <div class="grid-item" data-description="Descripcion de maqueta SC241">
+          <div class="inner-box">
+            <img src="images/maqueta sc41 portada.webp" alt="Imagen 3">
+          </div>
+          <div class="text-box">Maqueta SC241</div>
+        </div>
+        <div class="grid-item" data-description="...">
+          <div class="inner-box">
+            <img src="images/maqueta sc41 portada.webp" alt="Imagen 4">
+          </div>
+          <div class="text-box">Título 4</div>
+        </div>
+        <div class="grid-item" data-description="...">
+          <div class="inner-box">
+            <img src="images/maqueta sc41 portada.webp" alt="Imagen 5">
+          </div>
+          <div class="text-box">Título 5</div>
+        </div>
+        <div class="grid-item" data-description="...">
+          <div class="inner-box">
+            <img src="images/maqueta sc41 portada.webp" alt="Imagen 6">
+          </div>
+          <div class="text-box">Título 6</div>
+        </div>
+        <div class="grid-item" data-description="...">
+          <div class="inner-box">
+            <img src="images/maqueta sc41 portada.webp" alt="Imagen 7">
+          </div>
+          <div class="text-box">Título 7</div>
+        </div>
+        <div class="grid-item" data-description="...">
+          <div class="inner-box">
+            <img src="images/maqueta sc41 portada.webp" alt="Imagen 8">
+          </div>
+          <div class="text-box">Título 8</div>
+        </div>
+        <div class="grid-item" data-description="...">
+          <div class="inner-box">
+            <img src="images/maqueta sc41 portada.webp" alt="Imagen 9">
+          </div>
+          <div class="text-box">Título 9</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= -->
+    <!-- SUBSECCIÓN: Equipo      -->
+    <!-- ======================= -->
+    <section id="equipo" class="section">
+      <h2 class="titulo-equipo">Equipo</h2>
+      <div class="equipo-container">
+        <button class="scroll-btn left" style="display: none;">←</button>
+        <div class="equipo-carousel">
+          <!-- Cada miembro del equipo -->
+          <div class="equipo-item" data-nombre="Miembro 1" data-rol="Desarrollador" data-experiencia="5 años">
+            <img src="images/miembro equipo1.png" alt="Miembro 1">
+          </div>
+          <div class="equipo-item" data-nombre="Miembro 2" data-rol="Diseñador" data-experiencia="3 años">
+            <img src="images/miembro equipo2.png" alt="Miembro 2">
+          </div>
+          <div class="equipo-item" data-nombre="Miembro 3" data-rol="Tester" data-experiencia="2 años">
+            <img src="images/miembro equipo3.png" alt="Miembro 3">
+          </div>
+          <!-- Logica no implementada en el css para que solo muestre 3 miembros
+          <div class="equipo-item" data-nombre="Miembro 4" data-rol="Gerente" data-experiencia="8 años">
+            <img src="images/miembro equipo4.jpg" alt="Miembro 4">
+          </div>
+          <div class="equipo-item" data-nombre="Miembro 5" data-rol="Soporte" data-experiencia="4 años">
+            <img src="images/miembro equipo5.jpg" alt="Miembro 5">
+          </div>
+          -->
+        </div>
+        <button class="scroll-btn right">→</button>
+      </div>
+    
+      <!-- Modal -->
+      <div id="equipo-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <img id="modal-foto" src="" alt="Foto del miembro" class="modal-foto">
+          <div class="modal-info">
+            <h3 id="modal-nombre"></h3>
+            <p><strong>Rol:</strong> <span id="modal-rol"></span></p>
+            <p><strong>Experiencia:</strong> <span id="modal-experiencia"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= -->
+    <!-- SUBSECCIÓN: Ubicación   -->
+    <!-- ======================= -->
+    <section id="ubicacion" class="section">
+      <div class="contenido-ubicacion">
+        <h2 class="titulo-ubicacion">Ubicación</h2>
+        <p class="texto-ubicacion">Conoce nuestra ubicación en Medellín.</p>
+        <a href="https://www.google.com/maps/place/Medell%C3%ADn,+Antioquia,+Colombia" target="_blank">
+          <img src="images/mapamed.svg" alt="Mapa de Medellín" class="mapa-reducida-ubicacion">
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================= -->
+    <!-- SUBSECCIÓN: Contacto    -->
+    <!-- ======================= -->
+    <section id="contacto" class="section">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h2>Contacto</h2>
+          <p>¿Tienes preguntas? Llena el formulario y nos pondremos en contacto contigo.</p>
+        </div>
+        <form id="contact-form">
+          <!-- Nombre -->
+          <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+          </div>
+          
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+          </div>
+          
+          <!-- Mensaje -->
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
+          </div>
+          
+          <!-- Botón de Enviar -->
+          <button type="submit" class="btn-submit">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================== -->
+  <!-- SECCIÓN: Scripts          -->
+  <!-- ========================== -->
+  <script src="script.js"></script>
+</body>
+</html>
