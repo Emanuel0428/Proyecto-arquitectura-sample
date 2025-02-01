@@ -36,12 +36,43 @@
     <!-- SUBSECCIÓN: Inicio      -->
     <!-- ======================= -->
     <section id="inicio" class="section active">
-      <!-- Video de fondo -->
-      <video muted autoplay loop id="video-fondo-1">
-        <source src="videos/logo.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-      </video>
+    <div class="inicio-container">
+      
+      <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" id="svg-inicio">
+        <!-- Estructura principal -->
+        <rect class="inicio-elemento inicio-linea" x="180" y="250" width="500" height="200" />
+        <!-- Cuadro superior -->
+        <rect class="inicio-elemento inicio-linea" x="280" y="150" width="350" height="100" />
+        <!-- Extensión lateral -->
+        <rect class="inicio-elemento inicio-linea" x="860" y="250" width="20" height="200" />
+        <!-- Laderas laterales -->
+        <rect class="inicio-elemento inicio-linea" x="80" y="438" width="100" height="12"/>
+        <rect class="inicio-elemento inicio-linea" x="880" y="438" width="100" height="12"/>
+        <!-- Cuadro superior 2 -->
+        <rect class="inicio-elemento inicio-linea" x="680" y="250" width="180" height="30" />
+        <!-- Ventanas -->
+        <g class="inicio-elemento ventanas">
+          <rect x="220" y="290" width="120" height="110" class="inicio-linea" />
+          <rect x="530" y="290" width="110" height="110" class="inicio-linea" />
+          <!-- Ventanas de arriba -->
+          <rect x="540" y="175" width="50" height="50" class="inicio-linea" />
+          <rect x="320" y="175" width="50" height="50" class="inicio-linea" />
+        </g>
+        <!-- Puerta -->
+        <rect class="inicio-elemento puerta inicio-linea" x="400" y="350" width="70" height="100" />
+        <!-- Línea del suelo -->
+        <rect class="inicio-linea" x="25" y="450" width="990" height="1"/>
+        <!-- Texto animado -->
+        <text class="title" x="50%" y="30" text-anchor="middle" dominant-baseline="middle" >
+          VOLUMEN
+        </text>
+        <text class="subtitle" x="50%" y="70" text-anchor="middle" dominant-baseline="middle">
+          Taller de Maquetas
+        </text>
+      </svg>
+    </div>
     </section>
+    
 
     <!-- ======================= -->
     <!-- SUBSECCIÓN: Proyectos   -->
