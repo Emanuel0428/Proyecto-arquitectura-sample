@@ -219,7 +219,7 @@ main.scrolled {
   opacity: 0;
   stroke-dasharray: 1500;
   stroke-dashoffset: 1500;
-  animation: inicio-dibujar 4s ease-in-out forwards;
+  animation: inicio-dibujar 5s ease-in-out forwards;
 }
 
 @keyframes inicio-dibujar {
@@ -235,7 +235,7 @@ main.scrolled {
   fill: none;
   stroke-dasharray: 1500;
   stroke-dashoffset: 1500;
-  animation: inicio-dibujar 4s ease-in-out forwards;
+  animation: inicio-dibujar 5s ease-in-out forwards;
 }
 
 .inicio-container {
@@ -248,17 +248,17 @@ main.scrolled {
 
 /* Estilos base para el texto */
 text {
-  font-size: 40px;
+  font-size: 45px;
   white-space: nowrap;
   overflow: hidden;
   position: relative;
   font-family: 'Nunito', sans-serif;
   fill: #f7f5eb;
   stroke: #0a0a0a; 
-  stroke-width: 0.5; 
+  stroke-width: 0.7px; 
   stroke-dasharray: 900; 
   stroke-dashoffset: 1000; 
-  animation: typing 2.2s steps(25) 3s forwards, blink 0.75s step-end infinite, fadeIn 1s forwards;
+  animation: typing 2.5s steps(25) 3s forwards, blink 0.75s step-end infinite, fadeIn 1s forwards;
 }
 
 /* Efecto de escritura */
@@ -866,5 +866,214 @@ main {
   main {
     margin-left: 200px; /* Ajusta el margen según el tamaño del sidebar */
     max-width: calc(100% - 200px);
+  }
+}
+
+
+/* ==========================
+    RESPONSIVIDAD 
+========================== */
+
+/* Estilos basicos para movil (por encima de 480px) */
+@media screen and (max-width: 480px) {
+  body {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    height: auto;
+    background-color: #f7f5eb;
+  }
+
+  .sidebar .logo {
+    font-size: 18px;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .logo-container {
+    display: none;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .sidebar nav ul li {
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  main {
+    margin-top: 120px;
+    padding: 10px;
+    width: 100%;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  /* Inicio Seccion */
+  #svg-inicio {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Proyectos Seccion */
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    height: auto;
+  }
+
+  .grid-item {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Equipo Seccion */
+  .equipo-container {
+    width: 90%;
+    margin: 80px auto 0;
+  }
+
+  .equipo-carousel {
+    width: 100%;
+  }
+
+  .scroll-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  /* Ubicación Seccion */
+  .mapa-reducida-ubicacion {
+    max-width: 80%;
+  }
+
+  /* Contacto Seccion */
+  .contact-container {
+    width: 90%;
+    padding: 15px;
+  }
+}
+
+/* Tablet (481px a 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .sidebar {
+    width: 25%;
+  }
+
+  main {
+    margin-left: 25%;
+    max-width: 75%;
+  }
+
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+  }
+
+  .grid-item {
+    width: 110px;
+    height: 110px;
+  }
+
+  .equipo-container {
+    width: 80%;
+    margin-left: 50px;
+  }
+}
+
+/* Escritorio pequeño (769px a 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    width: 22%;
+  }
+
+  main {
+    margin-left: 22%;
+    max-width: 78%;
+  }
+
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    width: 100%;
+  }
+}
+
+/* Escritorio grande (1025px y superior) */
+@media screen and (min-width: 1025px) {
+  .container {
+    width: 900px;
+  }
+}
+
+/* Caracteristicas adicionales */
+@media screen and (max-height: 600px) {
+  .sidebar nav ul li {
+    margin: 10px 0;
+  }
+
+  .logo-container {
+    margin-top: 100px;
+  }
+}
+
+@media (hover: none) {
+  .grid-item:hover {
+    transform: none;
+  }
+
+  .sidebar nav ul li:hover::after {
+    width: 0;
+  }
+}
+
+@media print {
+  .sidebar {
+    display: none;
+  }
+
+  main {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+}
+
+/* Estilos especificos orientacion */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .sidebar {
+    padding: 10px;
+  }
+
+  .sidebar .logo {
+    margin: 10px 0;
+  }
+
+  main {
+    padding: 10px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  .sidebar nav ul li {
+    font-weight: 500;
   }
 }

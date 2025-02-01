@@ -74,47 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Funcion para controlar la reproducción de los videos
-document.addEventListener("DOMContentLoaded", () => {
-  const video1 = document.getElementById("video-fondo-1");
-  const video2 = document.getElementById("video-fondo-2");
-
-  // Inicia mostrando el primer video
-  video1.classList.add("active");
-
-  // Cambia al segundo video cuando el primero termina
-  video1.addEventListener("ended", () => {
-    video1.classList.remove("active");
-    video2.classList.add("active");
-    video2.play();
-  });
-
-  // Detiene el segundo video en el último cuadro
-  video2.addEventListener("ended", () => {
-    video2.pause();
-    video2.currentTime = video2.duration;
-  });
-
-  // Reinicia la animación al hacer scroll hacia la sección
-  const inicioSection = document.getElementById("inicio");
-  let observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Reinicia ambos videos
-          video2.pause();
-          video2.currentTime = 0;
-          video2.classList.remove("active");
-
-          video1.classList.add("active");
-          video1.play();
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-});
-
 // Logica para el carrusel
 
 const carousel = document.querySelector('.equipo-carousel');
